@@ -1,0 +1,30 @@
+services:
+  clab:
+    build: .
+    image: c-lab:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Tài khoản quản trị (giảng viên) được tạo khi khởi động lần đầu — HÃY ĐỔI MẬT KHẨU
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: doi-mat-khau-nay
+      # Đặt "0" để tắt tự đăng ký (giảng viên tạo tài khoản hàng loạt trong trang Quản trị)
+      ALLOW_REGISTRATION: "1"
+      # Bật khi chạy sau HTTPS reverse proxy (nginx, Caddy, Cloudflare...)
+      # SECURE_COOKIES: "1"
+      # TRUST_PROXY: "1"
+      # Số bài chấm song song (mặc định = số CPU)
+      # JUDGE_CONCURRENCY: "4"
+    volumes:
+      - clab-data:/app/data
+    # Giới hạn tài nguyên cho cả container
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 2g
+    pids_limit: 512
+
+volumes:
+  clab-data:

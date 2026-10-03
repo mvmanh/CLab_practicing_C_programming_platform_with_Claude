@@ -1,0 +1,31 @@
+{
+  "name": "c-lab",
+  "version": "1.0.0",
+  "description": "Nền tảng luyện tập lập trình C theo chủ đề, chấm bài tự động",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "prestart": "node scripts/build-problems.js --if-stale",
+    "dev": "node --disable-warning=ExperimentalWarning --watch-path=server --watch-path=content server/index.js",
+    "build:problems": "node scripts/build-problems.js",
+    "test": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 \"test/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvmanh/lab2.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvmanh/lab2/issues"
+  },
+  "homepage": "https://github.com/mvmanh/lab2#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "marked": "^18.0.14",
+    "monaco-editor": "^0.57.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  }
+}
