@@ -1,7 +1,10 @@
 node_modules/
 data/
+content/
 content/problems.json
 *.db
 *.db-wal
 *.db-shm
 .env
+.DS_Store
+*.log
