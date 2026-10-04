@@ -17,7 +17,7 @@ COPY . .
 RUN node scripts/build-problems.js
 
 # Chạy bằng user không có quyền root
-RUN useradd --create-home --uid 10001 clab && mkdir -p /app/data && chown -R clab:clab /app/data
+RUN useradd --create-home --uid 10001 clab && mkdir -p /app/data /tmp/cjudge && chown -R clab:clab /app/data /tmp/cjudge
 USER clab
 
 ENV PORT=3000 DATA_DIR=/app/data
