@@ -24,7 +24,7 @@ services:
         limits:
           cpus: "4"
           memory: 2g
-    pids_limit: 512
+          pids: 512
 
 volumes:
   clab-data:
