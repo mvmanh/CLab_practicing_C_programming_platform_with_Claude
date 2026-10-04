@@ -4,7 +4,7 @@ services:
     image: c-lab:latest
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "8080:3000"
     environment:
       # Tài khoản quản trị (giảng viên) được tạo khi khởi động lần đầu — HÃY ĐỔI MẬT KHẨU
       ADMIN_USERNAME: admin
